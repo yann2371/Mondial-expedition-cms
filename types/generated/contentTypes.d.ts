@@ -486,7 +486,6 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    excerpt: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -495,6 +494,7 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
+    summary: Schema.Attribute.String;
     tags: Schema.Attribute.JSON;
     title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
@@ -538,6 +538,7 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    content: Schema.Attribute.Blocks;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -547,7 +548,7 @@ export interface ApiGuideGuide extends Struct.CollectionTypeSchema {
     pdf: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'title'>;
-    summary: Schema.Attribute.Blocks;
+    summary: Schema.Attribute.String;
     title: Schema.Attribute.Text;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -570,7 +571,6 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
     duration: Schema.Attribute.Decimal;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::video.video'> &
@@ -578,6 +578,7 @@ export interface ApiVideoVideo extends Struct.CollectionTypeSchema {
     provider: Schema.Attribute.Enumeration<['youtube, ', 'vimeo, ', 'other']>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
+    summary: Schema.Attribute.Text;
     thumbnail: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true

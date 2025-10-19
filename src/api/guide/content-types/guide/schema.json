@@ -4,7 +4,7 @@
   "info": {
     "singularName": "guide",
     "pluralName": "guides",
-    "displayName": "Guide"
+    "displayName": "guide"
   },
   "options": {
     "draftAndPublish": true
@@ -14,12 +14,15 @@
     "title": {
       "type": "text"
     },
-    "summary": {
-      "type": "blocks"
-    },
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "content": {
+      "type": "blocks"
     },
     "pdf": {
       "type": "media",

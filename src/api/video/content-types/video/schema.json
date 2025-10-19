@@ -28,7 +28,7 @@
     "url": {
       "type": "string"
     },
-    "description": {
+    "summary": {
       "type": "text"
     },
     "thumbnail": {
